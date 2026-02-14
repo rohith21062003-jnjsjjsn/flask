@@ -1,0 +1,35 @@
+from sklearn.cluster import DBSCAN
+
+# Initialize a DBSCAN model with eps=0.5 and min_samples=5
+dbscan_model = DBSCAN(eps=0.5, min_samples=5)
+
+# Fit the DBSCAN model to the scaled data X (df_min_max_scaled)
+dbscan_model.fit(X)
+
+# Add the cluster labels as a new column named 'DBSCAN_Cluster' to the df_processed DataFrame
+df_processed['DBSCAN_Cluster'] = dbscan_model.labels_
+
+# Get unique cluster labels, excluding noise points (-1)
+unique_clusters = len(set(dbscan_model.labels_)) - (1 if -1 in dbscan_model.labels_ else 0)
+
+print(f"Number of unique clusters found (excluding noise points): {unique_clusters}")
+print("First 5 rows of df_processed with new 'DBSCAN_Cluster' column:")
+display(df_processed.head())
+
+from sklearn.cluster import DBSCAN
+
+# Initialize a DBSCAN model with eps=0.5 and min_samples=5
+dbscan_model = DBSCAN(eps=0.5, min_samples=5)
+
+# Fit the DBSCAN model to the scaled data X (df_min_max_scaled)
+dbscan_model.fit(X)
+
+# Add the cluster labels as a new column named 'DBSCAN_Cluster' to the df_processed DataFrame
+df_processed['DBSCAN_Cluster'] = dbscan_model.labels_
+
+# Get unique cluster labels, excluding noise points (-1)
+unique_clusters = len(set(dbscan_model.labels_)) - (1 if -1 in dbscan_model.labels_ else 0)
+
+print(f"Number of unique clusters found (excluding noise points): {unique_clusters}")
+print("First 5 rows of df_processed with new 'DBSCAN_Cluster' column:")
+display(df_processed.head())
